@@ -13,9 +13,8 @@ class Form  extends React.Component{
         
       }
 
-      function (){
-          Axios.get('/createnewURL?id=12345')
-          .then((res)=> console.log(res))
+      handleChange(event) {
+        this.setState({URLvalue: event.target.value});
       }
 
       handleSubmit(event) {
@@ -29,13 +28,17 @@ class Form  extends React.Component{
         return(
             <div>
                 <h1 style={{textAlign:"center", fontFamily: "sans-serif"}}>Form for Shortening URLs</h1>
-                    <form style={{textAlign: "center"}} onSubmit={this.handleSubmit}>
+                    <form style={{textAlign: "center"}} onSubmit={this.handleSubmit} >
                     <label>
                         URL: 
                         <input type="text" name="name" placeholder="Insert your URL..." onChange={this.handleChange}/>
                     </label>
                     <input type="submit" value="Submit"  />
                     </form>
+                    {this.state.URLvalue} <br>
+                    </br>
+                    <br>
+                    </br>
                     {this.state.shortURL}
              </div>
     

@@ -22,19 +22,14 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 const urlSchema = new mongoose.Schema({
     url: String,
     id: Number,
-    isPublished: Boolean
+    isPublished: Boolean,
+    concaturl: String
 })
 const Url = mongoose.model('URL', urlSchema);
 
-app.get('/:id', async function(req, res) {
-    
-    try{
-        res.send(req.body)
-    }
-    catch(err){
-        console.log(err);
-    }
-}) 
+
+
+
 
 app.post('/createnewURL', async function(req,res){
     const count = await Url.countDocuments({}, function(err, count){
@@ -43,9 +38,10 @@ app.post('/createnewURL', async function(req,res){
     const url = new Url({
         url: req.body.URLvalue,
         id: count+1,
-        isPublished: true
+        isPublished: true,
+        concaturl: `https://localhost:3000${count+1}`
     });
-    try{
+    try{ console.log(count)
         const savedURL = await url.save();
         const encoded = Base64.encode(count+1);
         res.send(encoded)
