@@ -29,8 +29,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 const urlSchema = new mongoose.Schema({
     url: String,
     id: Number,
-    isPublished: Boolean,
-    concaturl: String
+    isPublished: Boolean
 })
 const Url = mongoose.model('URL', urlSchema);
 
@@ -45,8 +44,7 @@ app.post('/createnewURL', async function(req,res){
     const url = new Url({
         url: req.body.URLvalue,
         id: count+1,
-        isPublished: true,
-        concaturl: `https://localhost:3000${count+1}`
+        isPublished: true
     });
     try{ console.log(count)
         const savedURL = await url.save();

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Axios from 'axios';
+import {Button} from '@material-ui/core';
 class Form  extends React.Component{
     constructor(props) {
         super(props);
@@ -33,7 +34,7 @@ class Form  extends React.Component{
                         Enter URL: 
                         <input type="text" name="name" placeholder="Insert your URL..." onChange={this.handleChange}/>
                     </label>
-                    <input type="submit" value="Submit"  />
+                    <Button variant="raised" color="secondary"><input type="submit" value="Submit"  /></Button>
                     </form>
                     {this.state.URLvalue} <br>
                     </br>
