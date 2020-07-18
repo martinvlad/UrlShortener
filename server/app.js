@@ -12,6 +12,13 @@ app.use('/', express.static('./dist', {
   index: "index.html"
 }))
 
+app.get('/:encodedID', async (req,res) =>{
+    const decoded = Base64.decode(req.params.encodedID);
+    const url = await Url.findOne({id: decoded})
+    const realURL = url.url;
+    res.redirect('https://' + realURL)
+})
+
 var mongoDB = 'mongodb://localhost:27017/SampleURLS';
 
 

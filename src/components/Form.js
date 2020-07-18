@@ -39,7 +39,7 @@ class Form  extends React.Component{
                     </br>
                     <br>
                     </br>
-                    {this.state.shortURL}
+                    <a href={this.state.shortURL}>{this.state.shortURL}</a>
              </div>
     
         )
