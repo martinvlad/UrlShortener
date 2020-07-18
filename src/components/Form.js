@@ -30,7 +30,7 @@ class Form  extends React.Component{
                 <h1 style={{textAlign:"center", fontFamily: "sans-serif"}}>Form for Shortening URLs</h1>
                     <form style={{textAlign: "center"}} onSubmit={this.handleSubmit} >
                     <label>
-                        URL: 
+                        Enter URL: 
                         <input type="text" name="name" placeholder="Insert your URL..." onChange={this.handleChange}/>
                     </label>
                     <input type="submit" value="Submit"  />
