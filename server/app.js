@@ -1,3 +1,4 @@
+let http = require('./helper.js');
 const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -16,7 +17,16 @@ app.get('/:encodedID', async (req,res) =>{
     const decoded = Base64.decode(req.params.encodedID);
     const url = await Url.findOne({id: decoded})
     const realURL = url.url;
-    res.redirect('https://' + realURL)
+    if(http(realURL) === 1){
+        res.redirect(realURL)
+    }
+    else if(http(realURL) === 2){
+        res.redirect(realURL)
+    }else{
+        res.redirect('https://' + realURL)
+    }
+    
+    
 })
 
 var mongoDB = 'mongodb://localhost:27017/SampleURLS';

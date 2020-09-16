@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Axios from 'axios';
 import {Button} from '@material-ui/core';
+
 class Form  extends React.Component{
     constructor(props) {
         super(props);
@@ -20,7 +21,7 @@ class Form  extends React.Component{
 
       handleSubmit(event) {
             event.preventDefault();
-            Axios.post('/createnewURL',{URLvalue: this.state.URLvalue}).then(res => this.setState({shortURL: "http://localhost:3000/" + res.data}))
+            Axios.post('/createnewURL',{URLvalue: this.state.URLvalue}).then(res => this.setState({shortURL: "http://localhost:3000/" + res.data})).catch(error => {});
         }
         
 
