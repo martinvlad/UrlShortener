@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Axios from 'axios';
 import {Button} from '@material-ui/core';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 class Form  extends React.Component{
     constructor(props) {
@@ -28,8 +29,8 @@ class Form  extends React.Component{
     render()
     {
         return(
-            <div>
-                <h1 style={{textAlign:"center", fontFamily: "sans-serif"}}>Form for Shortening URLs</h1>
+            <div style={{backgroundColor: "lightblue"}}>
+                <h1 style={{textAlign:"center", fontFamily: "sans-serif", backgroundColor: "lightBlue"}}>Form for Shortening URLs...</h1>
                     <form style={{textAlign: "center"}} onSubmit={this.handleSubmit} >
                     <label>
                         Enter URL: 
@@ -42,7 +43,9 @@ class Form  extends React.Component{
                     <br>
                     </br>
                     <a href={this.state.shortURL}>{this.state.shortURL}</a>
+                    
              </div>
+             
     
         )
     }
