@@ -23,6 +23,7 @@ class Form  extends React.Component{
       handleSubmit(event) {
             event.preventDefault();
             Axios.post('/createnewURL',{URLvalue: this.state.URLvalue}).then(res => this.setState({shortURL: "http://localhost:3000/" + res.data})).catch(error => {});
+            
         }
         
 
