@@ -29,7 +29,7 @@ app.get('/:encodedID', async (req,res) =>{
     
 })
 
-var mongoDB = 'mongodb://localhost:27017/SampleURLS';
+var mongoDB = "mongodb+srv://martin:mongouripassword@cluster0.le66d.mongodb.net/Cluster0?retryWrites=true&w=majority";
 
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
